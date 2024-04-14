@@ -553,6 +553,7 @@ class FlashFFTConv(torch.nn.Module):
             raise NotImplementedError(f'seqlen {seqlen} not supported')
     
     def forward(self, u, k, pregate=None, postgate=None):
+        k = k.squeeze()
         # orig_dtype = u.dtype
         # if (u.dtype != self.dtype):
         #     u = u.to(self.dtype).contiguous()
